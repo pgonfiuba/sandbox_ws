@@ -93,10 +93,10 @@
     <origin xyz = "0.0 0.0 -0.05 " rpy = " 0  0 -1.5708"/>
     </visual>
     <collision>
+      <origin xyz="0 0 -0.01" rpy="0 0 -1.5708"/>
       <geometry>
-       <mesh filename="package://clase4/robots/mycobot_320_m5_2022/link5.dae"/>
+        <box size="0.103 0.059 0.080"/>
       </geometry>
-    <origin xyz = "0.0 0.0 -0.05 " rpy = " 0  0 -1.5708"/>
     </collision>
   </link>
 
