@@ -41,7 +41,7 @@ def main():
     node = StaticToolPublisher()
 
     # importante: dejar que el nodo viva un poco
-    rclpy.spin_once(node, timeout_sec=0.5)
+    rclpy.spin_once(node, timeout_sec=2.5)
 
     rclpy.shutdown()
 
