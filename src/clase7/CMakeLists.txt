@@ -8,9 +8,27 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+add_executable(hello_moveit src/hello_moveit.cpp)
+target_compile_features(hello_moveit PUBLIC c_std_99 cxx_std_17)
+ament_target_dependencies(hello_moveit
+  rclcpp
+  moveit_ros_planning_interface
+  geometry_msgs
+)
+install(TARGETS hello_moveit DESTINATION lib/${PROJECT_NAME})
+
+add_executable(hello_moveit_obstacles src/hello_moveit_obstacles.cpp)
+target_compile_features(hello_moveit_obstacles PUBLIC c_std_99 cxx_std_17)
+ament_target_dependencies(hello_moveit_obstacles
+  rclcpp
+  moveit_ros_planning_interface
+  geometry_msgs
+)
+install(TARGETS hello_moveit_obstacles DESTINATION lib/${PROJECT_NAME})
 
 # Copy necessary files to designated locations in the project
 install (
@@ -29,13 +47,8 @@ install (
 )
 
 install(PROGRAMS
-  scripts/move_to_pose.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-
-install(PROGRAMS
-  scripts/move_to_joints.py
+  scripts/hello_moveit.py
+  scripts/hello_moveit_obstacles.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
